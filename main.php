@@ -25,7 +25,9 @@
 		</div>
 	</div>
 	<div id = "footer">
-		<p>Blow Your Speakers: Your Music Community Hub</p>
+		<p>Blow Your Speakers: Your Music Community</p>
 	</div>
 </body>
 </html>
+
+
