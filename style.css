@@ -7,6 +7,25 @@ div#header{
   border-radius: 10px;
 }
 
+div#welcome{
+  float: left;
+  text-align: center;
+  padding-top: 10px;
+  margin-left: 5%;
+  width: 180px;
+  height: 100%;
+}
+
+div#logout{
+  position: relative;
+  text-align: center;
+  float: right;
+  height: 100%;
+  padding-top: 15px;
+  margin-right: 2%;
+  display: block;
+}
+
 div#content{
   position: relative;
   float: left;
@@ -22,6 +41,8 @@ div#content{
   height: 100%;
   border: 2px solid #0e0785;
   border-radius: 10px;
+  padding: 3px;
+  text-align: justify;
 }
 
 div#leftPan{
@@ -34,6 +55,13 @@ div#centralPan{
 
 div#rightPan{
   float: left;
+}
+
+div.inputmsg{
+  position: relative;
+  border: 2px solid red;
+  bottom: 2px;
+  width: 100%;
 }
 
 form{

@@ -30,7 +30,9 @@
 			$_SESSION["nick"]= $doc["nickname"];
 			$_SESSION["genres"]= $doc["genres"];
 		}
+
+		$client->close();
+		header("Location: main.php");
 	}
-	$client->close();
-	header("Location: main.php");
+	
 ?>
