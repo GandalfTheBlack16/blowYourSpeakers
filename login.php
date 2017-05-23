@@ -32,6 +32,7 @@
 		}
 
 		$client->close();
+		echo "HOLA AXEL";
 		header("Location: main.php");
 	}
 	

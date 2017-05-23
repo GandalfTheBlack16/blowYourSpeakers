@@ -4,30 +4,28 @@
 	<title>Blow Your Speakers!</title>
 	<meta charset = "UTF-8">
 	<link href = "style.css" rel = "stylesheet" type = "text/css" />
-</head>
-<body id = "index">
-	<div id = "log">
-		<div class="login">
-			<div class="login-form">
-				<form method = "post" action="login.php">
-					<div class="control-group">
-						<input type="email" class="login-field" value="" placeholder="e-mail" id="login-name" name="email">
-						<label class="login-field-icon fui-user" for="login-name"></label>
-					</div>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<div class="container-fluid">
+		<div class="jumbotron login-form">
+			<form method = "post" action="login.php">
+				<div class="control-group">
+					<input type="email" class="login-field" value="" placeholder="e-mail" id="login-name" name="email">
+					<label class="login-field-icon fui-user" for="login-name"></label>
+				</div>
 
-					<div class="control-group">
-						<input type="password" class="login-field" value="" placeholder="password" id="login-pass" name="pass">
-						<label class="login-field-icon fui-lock" for="login-pass"></label>
-					</div>
+				<div class="control-group">
+					<input type="password" class="login-field" value="" placeholder="password" id="login-pass" name="pass">
+					<label class="login-field-icon fui-lock" for="login-pass"></label>
+				</div>
 
-					<button type = "submit" class="btn btn-primary btn-large btn-block">login</button>
-				</form>		
-			</div>
+				<button type = "submit" class="btn btn-danger btn-large btn-block">login</button>
+			</form>	
 		</div>
 		<p style="color: white">Have no account? <a href = "newUser.php">Register</a></p>
 	</div>
 	<div id = "footer">
 		<p>Blow Your Speakers: Your Music Community Hub</p>
 	</div>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
