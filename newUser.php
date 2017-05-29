@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title> New User </title>
-	 <link rel="stylesheet" href="style.css">
+	 <link rel="stylesheet" href="style/style.css">
 	<meta charset = "UTF-8">
 </head>
 <body>
@@ -11,11 +11,32 @@
 
 <form action="newUser.php" method="POST" style="border:1px solid #ccc">
   <div class="container">
-    <label><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
 
     <label><b>Nick</b></label>
     <input type="text" placeholder="Enter Nickname" name="nick" required>
+
+    <label><b>Musical Tastes</b></label><br>
+
+	 	<label for="rock">Rock</label>
+	 	<input type="checkbox" name="taste[]" value="Rock" id="rock">
+
+	 	<label for="pop">Pop</label>
+	    <input type="checkbox" name="taste[]" value="Pop" id="pop">
+
+	    <label for="classic">Classical</label>
+	    <input type="checkbox" name="taste[]" value="Classical" id="classic">
+
+	    <label for="elect">Electro</label>
+	    <input type="checkbox" name="taste[]" value="Electro" id="elect">
+
+	    <label for="grunge">Grunge</label>
+	    <input type="checkbox" name="taste[]" value="Grunge" id="grunge">
+
+	    <label for="metal">Metal</label>
+	    <input type="checkbox" name="taste[]" value="Metal" id="metal"> <br>
+
+	<label><b>Age</b></label><br>
+	<input type="number" name="age" min="16" max="85">
 
     <label><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
@@ -37,33 +58,29 @@
 
 <?php 
 	
-	if (isset($_POST['email'])){
+	if (isset($_POST['nick']) && isset($_POST['taste']) && isset($_POST['age']) && isset($_POST['psw']) && isset($_POST['psw-repeat'])){
 		
-		$email = $_POST['email'];
 		$pass1 = $_POST['psw'];
 		$pass2 = $_POST['psw-repeat'];
 		$nick = $_POST['nick'];
-		$genres = "";
+		$age = $_POST['age'];
+		$genres = $_POST['taste'];
 		
-		try{
-			$mc = new MongoClient();
-		}catch(MongoException $e){
-			echo "<p>Please, check Mongo DB server is started</p>";
-		}
-		$db = $mc->selectCollection("blowyourspeakers", "users");
+		require ("initMongo.php");
+
+		$db = $client->selectCollection("blowyourspeakers", "users");
 		
 		if ($pass1 == $pass2){
 
-			$newUser = array ("email"=> $email, "password"=> $pass1, "nickname"=> $nick, "genres"=> $genres);
+			$newUser = array ("nickname"=> $nick, "password"=> $pass1, "age" => $age ,"genres"=> $genres);
 
 			try{
 				$db->insert($newUser);
 			} catch (MongoCursorException $e){
 
-				echo "<p>You're already registered!</p>";
 			}finally{
 
-				$mc->close();
+				$client->close();
 				header("Location: index.html");
 			}
 

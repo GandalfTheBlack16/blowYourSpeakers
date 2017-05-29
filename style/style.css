@@ -1,0 +1,217 @@
+div#header{
+	
+  width:100%;
+  height: 90px;
+  background: #37f;
+  border: 2px solid #0e0785;
+  border-radius: 10px;
+}
+
+div#welcome{
+  float: left;
+  text-align: center;
+  padding-top: 10px;
+  margin-left: 5%;
+  width: 180px;
+  height: 100%;
+}
+
+div#logout{
+  position: relative;
+  text-align: center;
+  float: right;
+  height: 100%;
+  padding-top: 15px;
+  margin-right: 2%;
+  display: block;
+}
+
+form{
+
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 350px;
+}
+
+h2{
+	text-align: center;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password], input[type=date] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+  
+button.smallButton {
+
+    width: 20%;
+    min-width: 120px;
+    border-top-width: thick;
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn,.signupbtn {
+    float: left;
+    width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+}
+
+div#log {
+    max-width: 60%;
+    min-height: 80%;
+    position: relative;
+    float: right;
+    margin: 5% 10% 0 20%;
+    padding: auto;
+    text-align: center; 
+}
+
+#footer {
+  clear: both;
+  position:absolute;
+  left:0;
+  bottom:5px;
+  width:100%;
+  height:60px;   /* Height of the footer */
+  background: #37f;
+  min-width:1100px;
+  border: 2px solid #0e0785;
+  border-radius: 10px;
+}
+
+ div#footer p{
+
+    color: white;
+    letter-spacing: 1px;
+    font-size: 108%;
+    text-align: center;
+}
+
+* {
+box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+body#index {
+font-family: Arial;
+background-image: url("../img/logo.jpg");
+background-repeat: no-repeat;
+background-position: 50px 100px;
+background-color: #4bbbe9;
+}
+body{
+
+  background-color: #4bbbe9;
+  color: white;
+}
+.login {
+margin: 20px auto;
+width: 300px;
+}
+.login-screen {
+background-color: #FFF;
+padding: 20px;
+border-radius: 5px
+}
+
+.app-title {
+text-align: center;
+color: #777;
+}
+
+.login-form {
+text-align: left;
+}
+.control-group {
+margin-bottom: 10px;
+}
+
+input {
+text-align: left;
+background-color: #ECF0F1;
+border: 2px solid transparent;
+border-radius: 3px;
+font-size: 16px;
+font-weight: 200;
+padding: 10px 20px;
+width: 100%;
+transition: border .5s;
+}
+
+input:focus {
+border: 2px solid #3498DB;
+box-shadow: none;
+}
+
+.btn {
+  border: 2px solid transparent;
+  background: #3498DB;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 25px;
+  padding: 10px 0;
+  text-decoration: none;
+  text-shadow: none;
+  border-radius: 3px;
+  box-shadow: none;
+  transition: 0.25s;
+  display: block;
+  width: 250px;
+  margin: 0 auto;
+}
+
+.btn:hover {
+  background-color: #2980B9;
+}
+
+.login-link {
+  font-size: 12px;
+  color: #444;
+  display: block;
+    margin-top: 12px;
+}
