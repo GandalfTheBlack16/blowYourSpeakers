@@ -10,7 +10,7 @@
 <body>
 	<?php require("header.php"); ?>
 	<style>li#direct{background-color: #4CAF50;}</style>	
-	<div id = "content">
+	<div class = "content">
 		<div id = "messages">
 			<h3>Friendly Chat: Talk with your best friends</h3>
 			<?php

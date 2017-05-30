@@ -1,4 +1,4 @@
-div#content{
+.content{
   display: block;
   margin: auto;
   margin-top: 5px;
@@ -56,6 +56,52 @@ form{
 label{
   color: darkblue;
 
+}
+
+#rigth, #left{
+ 
+  
+  display: block;
+ 
+}
+
+#left{
+   
+  width: 40%;
+  min-height: 80%;
+  border: 2px solid #0e0785;
+  border-radius: 5px;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+  letter-spacing: 1px;
+  background-color: lightblue;
+  color: darkblue;
+  font-family: "Arial";
+}
+fieldset{
+  width: 100%;
+}
+legend, label{
+  letter-spacing: 1px;
+
+}
+#rigth{
+
+  min-width: 20%;
+  max-width: 20%;
+  border-radius: 5px;
+  background-color: lightblue;
+  color: darkblue;
+}
+th{
+
+}
+
+table{
+  border: 1px solid #0e0785;
+  margin: 1px;
+  width: 100%;
 }
 
 

@@ -10,7 +10,7 @@
 <body>
 	<?php require("header.php"); ?>
 	<style>li#global{background-color: #4CAF50;}</style>	
-	<div id = "content">
+	<div class = "content">
 		<div id = "messages">
 			<h3>Global Messages: A place where imagination flows</h3>
 			<?php

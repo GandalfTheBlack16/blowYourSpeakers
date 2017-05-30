@@ -9,8 +9,8 @@
 </head>
 <body>
 	<?php require("header.php"); ?>	
-	<div id = "content">
-		<div id = "messages">
+	<div class = "container">
+		<div id = "left">
 			<h3>Groups</h3>
 			<?php
 				require('initMongo.php');
@@ -31,28 +31,30 @@
 						</tr> 
 						<?php foreach ($cursor as $doc) {
 						
+							$range = $doc['ageRange'];
+							$ageRange = "{$range['min']}" . " - " . "{$range['max']}";
 							echo "<tr>";
 							echo "<td>{$doc['groupName']}</td>";
 							echo "<td>{$doc['genres']}</td>";
-							echo "<td>{$doc['ageRange']}</td>";
+							echo "<td>{$ageRange}</td>";
 							echo "</tr>";
 						}?>
 						
-					</table>"; <?php
+					</table> <?php
 				}
 			?>
 		</div>
-		<div class="inputmsg" name="addGroupForm">
+		<div id="rigth" name="addGroupForm">
 			<form method="post" action="admin.php">
 				<label for="nameField">Group Name</label><input type="text" id = "nameField" name="group" style="width: 50%;" required/> 
 				<select name="genre" required>
 					<option disabled selected value> -- select musical taste -- </option>
-					<option value="rock">Rock</option>
-					<option value="pop">Pop</option>
-					<option value="classic">Classical</option>
-					<option value="elect">Electro</option>
-					<option value="grunge">Grunge</option>
-					<option value="metal">Metal</option>
+					<option value="Rock">Rock</option>
+					<option value="Pop">Pop</option>
+					<option value="Classic">Classical</option>
+					<option value="Electro">Electro</option>
+					<option value="Grunge">Grunge</option>
+					<option value="Metal">Metal</option>
 				</select>
 				<fieldset>
 					<legend>Age Range:</legend>
@@ -62,7 +64,9 @@
 					<input type="number" name="maxAge" min="17" max="85">
 				</fieldset>
 
-				<button type="submit" name="submitButton" style="width: 100px;">Add</button>
+				<div class="clearfix">
+					<button type="submit" name="submitButton"  class="signupbtn">Add</button>
+				</div>
 			</form>
 		</div>
 	</div>
