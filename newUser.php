@@ -52,7 +52,7 @@
     </div>
   </div>
 </form>
-
+<?php include("footer.php"); ?>
 </body>
 </html>
 

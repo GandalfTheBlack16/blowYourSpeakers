@@ -40,15 +40,17 @@
 		<div id = "header">
 			<div id="image" style="float: left; margin: auto; padding-top: 0">
 				<img src="img/logo.png" alt="logo" style="height: 90px; margin-top: 0;"/>
-			</div>	
-			<div id ="navBar">
-				<ul>
-					<li id="global"><a href="globalChat.php">Global Messages</a></li>
-					<li id="direct"><a href="directMsg.php">Private Zone</a></li>
-					<li id="group"><a href="groupChat.php">My Groups</a></li>
-					<li id="profile"><a href="profile.php">About me</a></li>
-				</ul> 
 			</div>
+			<?php if ($_SESSION['nick']!="admin"){ ?>	
+				<div id ="navBar">
+					<ul>
+						<li id="global"><a href="globalChat.php">Global Messages</a></li>
+						<li id="direct"><a href="directMsg.php">Private Zone</a></li>
+						<li id="group"><a href="groupChat.php">My Groups</a></li>
+						<li id="profile"><a href="profile.php">About me</a></li>
+					</ul> 
+				</div>
+			<?php } ?>
 			<div id ="welcome">
 				<p> Logged as, <?php echo "{$_SESSION['nick']}";?> </p>
 			</div>
