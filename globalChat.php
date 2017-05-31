@@ -11,7 +11,7 @@
 	<?php require("header.php"); ?>
 	<style>li#global{background-color: #4CAF50;}</style>	
 	<div class = "content">
-		<div id = "messages">
+		<div class = "messages">
 			<h3>Global Messages: A place where imagination flows</h3>
 			<?php
 				require('initMongo.php');

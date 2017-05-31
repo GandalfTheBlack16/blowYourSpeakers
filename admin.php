@@ -25,6 +25,7 @@
 					?>
 					<table>
 						<tr>
+							<th>ID</th>
 							<th>Group</th>
 							<th>Genres</th>
 							<th>Age range</th>
@@ -34,6 +35,7 @@
 							$range = $doc['ageRange'];
 							$ageRange = "{$range['min']}" . " - " . "{$range['max']}";
 							echo "<tr>";
+							echo "<td>{$doc['_id']}</td>";
 							echo "<td>{$doc['groupName']}</td>";
 							echo "<td>{$doc['genres']}</td>";
 							echo "<td>{$ageRange}</td>";

@@ -30,6 +30,7 @@
 			$cursor = $db ->find($userQuery);
 			foreach ($cursor as $doc) {
 				$_SESSION["genres"]= $doc["genres"];
+				$_SESSION["age"] = $doc["age"];
 			}
 
 			$client->close();

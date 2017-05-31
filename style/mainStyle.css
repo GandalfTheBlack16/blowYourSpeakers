@@ -10,13 +10,14 @@
   
 }
 
-div#messages{
+div.messages{
 
   width: 100%;
   height: 600px;
   margin: auto;
   overflow: auto;
   padding: 20px;
+  color: darkblue;
 }
 
 h3{

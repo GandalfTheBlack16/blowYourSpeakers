@@ -11,7 +11,7 @@
 	<?php require("header.php"); ?>
 	<style>li#direct{background-color: #4CAF50;}</style>	
 	<div class = "content">
-		<div id = "messages">
+		<div class = "messages">
 			<h3>Friendly Chat: Talk with your best friends</h3>
 			<?php
 				require('initMongo.php');
