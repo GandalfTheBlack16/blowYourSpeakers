@@ -7,6 +7,7 @@
   border-radius: 10px;
   padding: 15px;
   background-color: lightblue;
+  color: darkblue;
   
 }
 
@@ -50,7 +51,7 @@ form{
   font-size: 16px;
   border-radius: 5px;
   border: 2px outset #0e0785;
-  margin-right:  20px;
+  margin-right:  10px;
   background-color: #3498DB;
 }
 
@@ -81,9 +82,10 @@ label{
   font-family: "Arial";
 }
 fieldset{
-  width: 100%;
+    width: inherit;
+    margin-left: 20px;
 }
-legend, label{
+label{
   letter-spacing: 1px;
 
 }
@@ -95,14 +97,16 @@ legend, label{
   background-color: lightblue;
   color: darkblue;
 }
-th{
-
-}
 
 table{
   border: 1px solid #0e0785;
   margin: 1px;
   width: 100%;
+}
+
+select{
+
+  width: 200px;
 }
 
 

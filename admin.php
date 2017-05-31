@@ -61,13 +61,13 @@
 				<fieldset>
 					<legend>Age Range:</legend>
 					<label><b>Min. Age</b></label>
-					<input type="number" name="minAge" min="16" max="84">
+					<input type="number" name="minAge" min="16" max="84"><br />
 					<label><b>Max. Age</b></label>
 					<input type="number" name="maxAge" min="17" max="85">
 				</fieldset>
 
-				<div class="clearfix">
-					<button type="submit" name="submitButton"  class="signupbtn">Add</button>
+				<div class="clearfix" style="margin-left: 30px;">
+					<button type="submit" name="submitButton" class="signupbtn">Add</button>
 				</div>
 			</form>
 		</div>

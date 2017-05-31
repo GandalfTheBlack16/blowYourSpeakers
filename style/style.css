@@ -10,9 +10,8 @@ div#header{
 div#welcome{
   float: left;
   text-align: center;
+  margin: 0 auto;
   padding-top: 10px;
-  margin-left: 5%;
-  width: 180px;
   height: 100%;
 }
 
@@ -169,18 +168,6 @@ text-align: left;
 }
 .control-group {
 margin-bottom: 10px;
-}
-
-input {
-text-align: left;
-background-color: #ECF0F1;
-border: 2px solid transparent;
-border-radius: 3px;
-font-size: 16px;
-font-weight: 200;
-padding: 10px 20px;
-width: 100%;
-transition: border .5s;
 }
 
 input:focus {
