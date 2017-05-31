@@ -16,7 +16,7 @@
 			<?php
 				require('initMongo.php');
 				$db = $client ->selectCollection ("blowyourspeakers", "messages");
-				$userQuery = array ("to" => $_SESSION['nick']); //Buscamos en la coleccion los mensajes cuyo receptor es el propio usuario loggeado
+				$userQuery = array('$or' => array(array("to" => $_SESSION['nick']),array("from" => $_SESSION['nick']))); //Buscamos en la coleccion los mensajes cuyo receptor es el propio usuario loggeado
 				if ($db->count($userQuery) == 0){
 					echo "<p>NO MESSAGES</p>";
 					$client->close();

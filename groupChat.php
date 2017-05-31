@@ -39,6 +39,9 @@
 				<button type="submit" name="showGroup" style="width: 100px;">Show</button>
 			</form>	
 		</div>
+		<div id = "footer">
+			<p>Blow Your Speakers: Your Music Community Hub</p>
+		</div>
 </body>
 </html>
 
