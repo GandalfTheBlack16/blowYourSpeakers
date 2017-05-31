@@ -21,7 +21,7 @@
 	}
 
 	div#navBar{
-		margin: 20px 10px 20px 30px;
+		margin: 20px 0 20px 30px;
 		float: left;
 		width: 40%;
 	}
@@ -34,7 +34,6 @@
 <html lang="english">
 	<head>
 		<meta charset= "UTF-8" />
-		<script src="jquery-3.2.1.min.js"></script> 
 	</head>
 	<body>
 		<div id = "header">

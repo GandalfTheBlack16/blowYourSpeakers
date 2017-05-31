@@ -31,7 +31,7 @@
 	<div class = "content">
 		<h2>Select a group...</h2>
 		<div id = "groups">
-			<form method="post" action="groupChat.php">
+			<form method="post" action="groupTalk.php">
 				<select name="activeGroup">
 					<option disabled selected value> -- select a group -- </option>
 					<?php fillOptions($_SESSION['genres'], $_SESSION['age']); ?>		
@@ -39,14 +39,6 @@
 				<button type="submit" name="showGroup" style="width: 100px;">Show</button>
 			</form>	
 		</div>
-		<?php
-			if (isset($_POST['showGroup'])){
-				
-				 $url = "groupTalk.php?idGroup=" . $_POST['activeGroup'];
-				 header("Location: $url");
-			}
-
-		?>
 </body>
 </html>
 

@@ -15,7 +15,6 @@
 			<?php
 				require('initMongo.php');
 				$db = $client ->selectCollection ("blowyourspeakers", "groups");
-				//$userQuery = array ("to" => ""); //Buscamos en la coleccion los mensajes sin receptor (van dirigidos a todos)
 				if ($db->count() == 0){
 					echo "<p>Add new groups using the form below</p>";
 					$client->close();

@@ -3,6 +3,7 @@
 <head>
 	<title> New User </title>
 	 <link rel="stylesheet" href="style/style.css">
+	 <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
 	<meta charset = "UTF-8">
 </head>
 <body>
@@ -17,26 +18,21 @@
 
     <label><b>Musical Tastes</b></label><br>
 
-	 	<label for="rock">Rock</label>
 	 	<input type="checkbox" name="taste[]" value="Rock" id="rock">
-
-	 	<label for="pop">Pop</label>
+	 	<label for="rock">Rock</label><br />
 	    <input type="checkbox" name="taste[]" value="Pop" id="pop">
-
-	    <label for="classic">Classical</label>
+	 	<label for="pop">Pop</label><br />
 	    <input type="checkbox" name="taste[]" value="Classical" id="classic">
-
-	    <label for="elect">Electro</label>
+	    <label for="classic">Classical</label><br />
 	    <input type="checkbox" name="taste[]" value="Electro" id="elect">
-
-	    <label for="grunge">Grunge</label>
+	    <label for="elect">Electro</label><br />
 	    <input type="checkbox" name="taste[]" value="Grunge" id="grunge">
-
-	    <label for="metal">Metal</label>
-	    <input type="checkbox" name="taste[]" value="Metal" id="metal"> <br>
+	    <label for="grunge">Grunge</label><br />
+	    <input type="checkbox" name="taste[]" value="Metal" id="metal"> 
+	    <label for="metal">Metal</label><br />
 
 	<label><b>Age</b></label><br>
-	<input type="number" name="age" min="16" max="85">
+	<input type="number" name="age" min="16" max="85" required><br />
 
     <label><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
@@ -47,8 +43,8 @@
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
     <div class="clearfix">
-      <button onclick = "window.location.href='index.html'" class="cancelbtn">Cancel</button>
-      <button type="submit" class="signupbtn">Sign Up</button>
+      <button type="submit" name= "addUser"class="signupbtn">Sign Up</button>
+      <button onclick = "window.location.href='index.php'" class="cancelbtn">Cancel</button>
     </div>
   </div>
 </form>
@@ -58,37 +54,48 @@
 
 <?php 
 	
-	if (isset($_POST['nick']) && isset($_POST['taste']) && isset($_POST['age']) && isset($_POST['psw']) && isset($_POST['psw-repeat'])){
-		
+	if (isset($_POST['addUser'])){
+
 		$pass1 = $_POST['psw'];
 		$pass2 = $_POST['psw-repeat'];
 		$nick = $_POST['nick'];
 		$age = $_POST['age'];
-		$genres = $_POST['taste'];
+		if (isset($_POST['taste']))
+			$genres = $_POST['taste'];
 		
 		require ("initMongo.php");
 
 		$db = $client->selectCollection("blowyourspeakers", "users");
 		
-		if ($pass1 == $pass2){
-
-			$newUser = array ("nickname"=> $nick, "password"=> $pass1, "age" => $age ,"genres"=> $genres);
-
-			try{
-				$db->insert($newUser);
-			} catch (MongoCursorException $e){
-
-			}finally{
-
-				$client->close();
-				header("Location: index.html");
-			}
-
-		}
+		if($db->count(array("nickname" => $nick)) > 0){ ?>
+			<script type = "text/javascript">
+				$( document ).ready(function() {
+				    alert( "Already exist an user with that nick!" );
+				});
+			</script>
+<?php   }
 		else{
 
-			echo "<p>Passwords dont conceed!</p>";
-			unset($_POST);
+			if ($pass1 == $pass2){
+
+				$newUser = array ("nickname"=> $nick, "password"=> $pass1, "age" => $age ,"genres"=> $genres);
+
+				try{
+					$db->insert($newUser);
+				} catch (MongoCursorException $e){
+
+				}finally{
+
+					$client->close();
+					header("Location: index.php");
+				}
+
+			}
+			else{
+
+				echo "<p>Passwords dont conceed!</p>";
+				unset($_POST);
+			}
 		}
 
 	}

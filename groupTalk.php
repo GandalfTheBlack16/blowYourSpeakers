@@ -10,16 +10,25 @@
 	<?php require("header.php"); ?>
 	<style>li#group{background-color: #4CAF50;}</style>	
 	<div class = "content">
+		<div>
+			<button onclick="location.href='groupChat.php';" style="width:150px;">More chats</button>
+		</div>
 		<div class = "messages">
 			<?php 
-				include("initMongo.php"); 
-				$id_group =  htmlspecialchars($_GET["idGroup"]);
-				$db = $client->selectCollection("blowyourspeakers", "groups");
-				$result = $db->findone(array("_id"=>$id_group));
-				echo "<h3>Group Chat: {$name}</h3>";
+				
+				if (isset($_POST['showGroup'])){
+					$id_group = $_POST["activeGroup"];
+					$_SESSION['id'] = $id_group;
+				} 
 
+				include("initMongo.php"); 
+				$db = $client->selectCollection("blowyourspeakers", "groups");
+				$userQuery = array("_id" => new MongoId($_SESSION['id']));
+				$result = $db->findOne($userQuery);
+				echo "<h3>Group Chat: {$result['groupName']}</h3>";
+		
 				$db = $client->selectCollection("blowyourspeakers", "messages");
-				$userQuery = array("to" => $id_group);
+				$userQuery = array("to" => $_SESSION['id']);
 				$cursor = $db -> count($userQuery);
 				if ($cursor == 0)
 				{
@@ -28,7 +37,7 @@
 				else{
 					echo "<ul>";
 					$cursor = $db -> find($userQuery);
-					foreach ($cursor as $key) {
+					foreach ($cursor as $doc) {
 
 						echo "<li><p><strong>{$doc['from']} ({$doc['date']}):</strong> {$doc['msg']}</p></li>";
 					}
@@ -37,7 +46,7 @@
 				$client->close();
 			?>
 			<div class="inputmsg" name="insertForm">
-				<form method="post" action="groupChat.php">
+				<form method="post" action="groupTalk.php">
 					<input type="text" name="msg" style="width: 70%;" required/> 
 					<button type="submit" name="addMessage" style="width: 100px;">Send</button>
 				</form>
@@ -51,11 +60,11 @@
 		include("initMongo.php");
 		$db = $client->selectCollection("blowyourspeakers", "messages");
 		$date = date("d-m-Y H:i");
-		$userQuery = array ("to" => $id_group, "from" => $_SESSION['nick'], "msg" => $_POST['msg'], "date" => $date);
+		$userQuery = array("to" => $_SESSION['id'], "from" => $_SESSION['nick'], "msg" => $_POST['msg'], "date" => $date);
 		try{
 			$db->insert($userQuery);
 			unset($_POST);
-			$client->close();
+			header("Location: groupTalk.php");
 		}catch(MongoException $e){
 			echo "<p>An error ocurs while loading messages. Please, refresh the page</p>";
 		}
